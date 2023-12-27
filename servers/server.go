@@ -1,4 +1,4 @@
-package main
+package servers
 
 import (
 	"fmt"
@@ -34,7 +34,7 @@ func mkServer(port int, wg sync.WaitGroup){
 
 }
 
-func main() {
+func Runservers() {
 	var myServers Servers
 	myServers.addServers(6)
 	var wg sync.WaitGroup
@@ -43,7 +43,5 @@ func main() {
 
 	for _, port := range myServers.Ports {
 		go mkServer(port, wg)
-	}
-
-	
+	}	
 }
